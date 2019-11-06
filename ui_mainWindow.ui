@@ -10,11 +10,14 @@
     <height>646</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(85, 255, 255);</string>
+   <string notr="true">background-color: rgb(234, 199, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="browserButton">
@@ -35,6 +38,9 @@
       <bold>false</bold>
       <kerning>true</kerning>
      </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 215, 243);
@@ -59,7 +65,7 @@ font: 8pt &quot;Segoe Print&quot;;</string>
 background-color: rgb(255, 192, 233);</string>
     </property>
     <property name="text">
-     <string>RUN</string>
+     <string>Run</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
@@ -93,7 +99,7 @@ font: 8pt &quot;Segoe Print&quot;;</string>
 font: 8pt &quot;Segoe Print&quot;;</string>
     </property>
     <property name="text">
-     <string>STOP RUN</string>
+     <string>Stop run</string>
     </property>
    </widget>
    <widget class="QTreeWidget" name="treeWidget">
@@ -105,6 +111,9 @@ font: 8pt &quot;Segoe Print&quot;;</string>
       <height>441</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
    </widget>
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
@@ -114,6 +123,9 @@ font: 8pt &quot;Segoe Print&quot;;</string>
       <width>471</width>
       <height>441</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QPushButton" name="selectAll">

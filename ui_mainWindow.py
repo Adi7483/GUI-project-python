@@ -14,7 +14,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 646)
-        MainWindow.setStyleSheet("background-color: rgb(85, 255, 255);")
+        MainWindow.setMouseTracking(False)
+        MainWindow.setStyleSheet("background-color: rgb(234, 199, 255);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.browserButton = QtWidgets.QPushButton(self.centralwidget)
@@ -27,6 +28,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         font.setKerning(True)
         self.browserButton.setFont(font)
+        self.browserButton.setMouseTracking(True)
         self.browserButton.setStyleSheet("background-color: rgb(255, 215, 243);\n"
 "font: 75 8pt \"MS Shell Dlg 2\";\n"
 "font: 8pt \"Segoe Print\";")
@@ -48,9 +50,11 @@ class Ui_MainWindow(object):
         self.pushButton_2.setObjectName("pushButton_2")
         self.treeWidget = QtWidgets.QTreeWidget(self.centralwidget)
         self.treeWidget.setGeometry(QtCore.QRect(10, 100, 161, 441))
+        self.treeWidget.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.treeWidget.setObjectName("treeWidget")
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit.setGeometry(QtCore.QRect(283, 100, 471, 441))
+        self.textEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.textEdit.setObjectName("textEdit")
         self.selectAll = QtWidgets.QPushButton(self.centralwidget)
         self.selectAll.setGeometry(QtCore.QRect(10, 550, 61, 41))
@@ -83,9 +87,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.browserButton.setText(_translate("MainWindow", "Select file"))
-        self.runFile.setText(_translate("MainWindow", "RUN"))
+        self.runFile.setText(_translate("MainWindow", "Run"))
         self.pushButton_4.setText(_translate("MainWindow", "logs"))
-        self.pushButton_2.setText(_translate("MainWindow", "STOP RUN"))
+        self.pushButton_2.setText(_translate("MainWindow", "Stop run"))
         self.selectAll.setText(_translate("MainWindow", "check"))
         self.disSelectAll.setText(_translate("MainWindow", "uncheck"))
         self.pushButton.setText(_translate("MainWindow", "clear"))

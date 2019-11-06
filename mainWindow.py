@@ -5,6 +5,7 @@ import os
 import subprocess
 import psutil
 
+
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QTreeWidgetItem, QTreeWidgetItemIterator
 from PyQt5 import QtGui, QtWidgets, QtCore
 from ui_mainWindow import Ui_MainWindow
@@ -30,9 +31,10 @@ class MainWindow(QMainWindow):
         self.list_files = []
         self.tree_files = []
         self.kill = []
-        # self.trpid = os.getpid()
         self.folder_name = ""
         self.run_subprocess = ""
+
+
 
     def select_test(self):
         self.folder_name = QFileDialog.getExistingDirectory(self, 'Open files',
@@ -56,23 +58,19 @@ class MainWindow(QMainWindow):
                 self.list_files.append(item.text(0))
                 print(self.list_files)
             iterator += 1
-        # self.thread.start()
-        # self.kill.append({"id": self.trpid})
-        # print(self.trpid)
         os.chdir(self.folder_name)
-
         self.path()
         # print(self.path)
+        self.ui.runFile.setEnabled(False)
+
 
     def path(self):
         a = 'node '
         for i in range(0, len(self.list_files)):
             if i != 0:
-                # a += f" && node {self.folder_name}/{self.list_files[i]}"
                 a += f" && {self.list_files[i]}"
                 print(a)
             else:
-                # a += f"{self.folder_name}/{self.list_files[i]}"
                 a += f"{self.list_files[i]}"
             print(a)
         self.run_subprocess = Popen(a, stdout=PIPE, stderr=PIPE, shell=True)
@@ -86,8 +84,11 @@ class MainWindow(QMainWindow):
                 # process_pid = process["id"]
                 subprocess.Popen("taskkill /F /T /PID %i" % self.run_subprocess.pid, shell=True)
             print('stopped running tests')
+            self.ui.pushButton_2.setEnabled(False)
         except:
             print("Couldn't stop the process")
+
+
 
     def check_all(self):
         iteratorx = QTreeWidgetItemIterator(self.ui.treeWidget)
@@ -120,18 +121,3 @@ app = QApplication(sys.argv)
 window = MainWindow()
 window.show()
 sys.exit(app.exec_())
-
-# def thread_tests(self):
-#     global p
-#     global s
-#     for i in range(0, len(self.list_name)):
-#         print(self.list_name)
-#         p = Popen(
-#             ['node', 'C:/Users/idana/Desktop/QA Automation Bootcamp/project/week_5/.vscode/' + self.list_name[i]],
-#             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-#         print(self.list_name[i])
-#         s = os.getpid()
-#         print(s)
-#         print(p)
-#         p.communicate()
-#         print(p.pid)
